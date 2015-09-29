@@ -12,6 +12,7 @@
 		B0C535711BBAF61400FC670F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C535701BBAF61400FC670F /* ViewController.m */; };
 		B0C535741BBAF61400FC670F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0C535721BBAF61400FC670F /* Main.storyboard */; };
 		B0C535761BBAF61400FC670F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0C535751BBAF61400FC670F /* Assets.xcassets */; };
+		B0C5357E1BBAF62000FC670F /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C5357D1BBAF62000FC670F /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B0C535731BBAF61400FC670F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B0C535751BBAF61400FC670F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0C535771BBAF61400FC670F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0C5357D1BBAF62000FC670F /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0C5357E1BBAF62000FC670F /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +43,7 @@
 		B0C5355D1BBAF61300FC670F = {
 			isa = PBXGroup;
 			children = (
+				B0C5357D1BBAF62000FC670F /* CoreBluetooth.framework */,
 				B0C535681BBAF61400FC670F /* BeaconTest */,
 				B0C535671BBAF61400FC670F /* Products */,
 			);
