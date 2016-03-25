@@ -34,22 +34,35 @@
 #pragma mark - Actions
 
 - (IBAction)didSelectAdvertiseButton:(id)sender {
-    NSDictionary *advertisingData = [self beaconDataWithUUID:[[NSUUID alloc] initWithUUIDString:@"E2AD5810-554E-11E4-9E35-164230D1DF67"]
-                                                       major:1000
-                                                       minor:56
-                                               measuredPower:-59];
-    
-    [self.peripheralManager startAdvertising:advertisingData];
+    [self startAdvertising];
 }
 
 - (IBAction)didSelectStopAdvertingButton:(id)sender {
     [self.peripheralManager stopAdvertising];
 }
 
+#pragma mark - Advertising
+
+- (void)startAdvertising {
+    // Advertising fails if the peripheral manager is not in the powered on state.
+    // The first time, it's likely to be powered off on Apple TV.
+    if (self.peripheralManager.state == CBPeripheralManagerStatePoweredOn
+        && !self.peripheralManager.isAdvertising) {
+        NSDictionary *advertisingData = [self beaconDataWithUUID:[[NSUUID alloc] initWithUUIDString:@"E2AD5810-554E-11E4-9E35-164230D1DF67"]
+                                                           major:1000
+                                                           minor:56
+                                                   measuredPower:-59];
+        [self.peripheralManager startAdvertising:advertisingData];
+    }
+}
+
 #pragma mark - CBPeripheralDelegate
 
 - (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral {
     NSLog(@"Changed state: %li", (long)peripheral.state);
+    if (peripheral.state == CBPeripheralManagerStatePoweredOn) {
+        [self startAdvertising];
+    }
 }
 
 - (void)peripheralManagerDidStartAdvertising:(CBPeripheralManager *)peripheral error:(nullable NSError *)error {
